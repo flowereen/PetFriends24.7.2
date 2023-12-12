@@ -195,7 +195,7 @@ def test_add_video_to_pet(pet_photo='images/puppy.mp4'):
 
 def test_add_new_pet_with_invalid_data(name='', animal_type='',
                                        age=None, pet_photo='images/cat1.jpg'):
-    """Проверяем что можно добавить питомца с корректными данными"""
+    """Проверяем что можно добавить питомца с некорректными данными"""
 
     # Получаем полный путь изображения питомца и сохраняем в переменную pet_photo
     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
@@ -212,8 +212,7 @@ def test_add_new_pet_with_invalid_data(name='', animal_type='',
 
 
 def test_add_new_pet_with_incorrect_data(name='123456', animal_type='123456', age=1):
-    """Проверяем возможность добавитоь питомца с некорректными данными (В поля "Имя" и "Порода"
-    введен числовой формат, вместо строки"""
+    """Проверяем возможность добавитоь питомца с некорректными данными"""
 
     _, auth_key = pf.get_api_key(valid_email, valid_password)
     status, result = pf.add_new_pet_without_photo(auth_key, name, animal_type, age)
